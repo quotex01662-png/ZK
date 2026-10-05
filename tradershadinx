@@ -1,7 +1,7 @@
 javascript:(()=>{
 
 /* =========================================================
-   TRADER SHADIN X + 4 DIGIT VERIFICATION
+   ZK TRADER CHINESE BOT + 4 DIGIT VERIFICATION
 ========================================================= */
 
 /* =========================
@@ -184,10 +184,6 @@ verifyStyle.textContent=`
 
 `;
 
-/* =========================
-   VERIFICATION POPUP
-========================= */
-
 document.head.appendChild(verifyStyle);
 
 const verifyPopup=document.createElement("div");
@@ -209,33 +205,10 @@ verifyPopup.innerHTML=`
 
   <div class="inputs">
 
-    <input
-      type="text"
-      maxlength="1"
-      inputmode="numeric"
-      autocomplete="off"
-    >
-
-    <input
-      type="text"
-      maxlength="1"
-      inputmode="numeric"
-      autocomplete="off"
-    >
-
-    <input
-      type="text"
-      maxlength="1"
-      inputmode="numeric"
-      autocomplete="off"
-    >
-
-    <input
-      type="text"
-      maxlength="1"
-      inputmode="numeric"
-      autocomplete="off"
-    >
+    <input type="text" maxlength="1" inputmode="numeric" autocomplete="off">
+    <input type="text" maxlength="1" inputmode="numeric" autocomplete="off">
+    <input type="text" maxlength="1" inputmode="numeric" autocomplete="off">
+    <input type="text" maxlength="1" inputmode="numeric" autocomplete="off">
 
   </div>
 
@@ -262,23 +235,18 @@ const verifyInputs=[
 
 
 /* =========================================================
-   MAIN TRADER SHADIN X
-   ONLY STARTS AFTER CORRECT CODE
+   MAIN ZK TRADER CHINESE BOT
 ========================================================= */
 
-function startTraderShadinX(){
+function startZKTraderChineseBot(){
 
-  /* =========================
-     ACTIVE GUARD
-  ========================= */
-
-  if(window.__TRADER_SHADIN_X_ACTIVE__){
+  if(window.__ZK_TRADER_CHINESE_BOT_ACTIVE__){
     return console.warn(
-      "Trader Shadin X already running."
+      "ZK TRADER CHINESE BOT already running."
     );
   }
 
-  window.__TRADER_SHADIN_X_ACTIVE__=1;
+  window.__ZK_TRADER_CHINESE_BOT_ACTIVE__=1;
 
 
   /* =========================
@@ -292,7 +260,8 @@ function startTraderShadinX(){
      SETTINGS
   ========================= */
 
-  const KEY="trader_shadin_x_settings_v8";
+  const KEY="zk_trader_chinese_bot_settings_v8";
+
   const DEF={
     delaySec:0,
     direction:"random"
@@ -519,7 +488,7 @@ function startTraderShadinX(){
 
   p.innerHTML=`
 
-<h3>Trader Shadin X Settings</h3>
+<h3>ZK TRADER CHINESE BOT Settings</h3>
 
 <label>Start delay (seconds)</label>
 
@@ -553,7 +522,7 @@ function startTraderShadinX(){
 
   w.innerHTML=`
 <img src="${LOGO}" draggable="false">
-<b>Trader Shadin X</b>
+<b>ZK TRADER CHINESE BOT</b>
 `;
 
   document.body.appendChild(w);
@@ -711,7 +680,7 @@ function startTraderShadinX(){
     if(!pool.length){
 
       console.warn(
-        "Trader Shadin X: trade buttons not found."
+        "ZK TRADER CHINESE BOT: trade buttons not found."
       );
 
       return;
@@ -821,11 +790,6 @@ function startTraderShadinX(){
     taps++;
 
     clearTimeout(timer);
-
-    /*
-       3 QUICK TAPS = SETTINGS
-       1 TAP = START / STOP
-    */
 
     if(taps>=3){
 
@@ -1016,7 +980,7 @@ function startTraderShadinX(){
      GLOBAL STOP
   ========================= */
 
-  window.__TRADER_SHADIN_X_STOP__=()=>{
+  window.__ZK_TRADER_CHINESE_BOT_STOP__=()=>{
 
     stop();
 
@@ -1028,14 +992,14 @@ function startTraderShadinX(){
     p.remove();
     st.remove();
 
-    delete window.__TRADER_SHADIN_X_ACTIVE__;
-    delete window.__TRADER_SHADIN_X_STOP__;
+    delete window.__ZK_TRADER_CHINESE_BOT_ACTIVE__;
+    delete window.__ZK_TRADER_CHINESE_BOT_STOP__;
 
   };
 
 
   console.log(
-    "Trader Shadin X loaded - Verified"
+    "ZK TRADER CHINESE BOT loaded - Verified"
   );
 
 }
@@ -1044,8 +1008,6 @@ function startTraderShadinX(){
 /* =========================================================
    VERIFICATION LOGIC
 ========================================================= */
-
-/* CLOSE BUTTON LOCKED */
 
 verifyClose.addEventListener("click",e=>{
 
@@ -1059,8 +1021,6 @@ verifyClose.addEventListener("click",e=>{
 
 });
 
-
-/* OUTSIDE CLICK LOCKED */
 
 verifyPopup.addEventListener("click",e=>{
 
@@ -1088,10 +1048,6 @@ function checkCode(){
     .map(input=>input.value)
     .join("");
 
-  /* =========================
-     CORRECT CODE
-     CHANGE HERE IF NEEDED
-  ========================= */
 
   if(code==="6934"){
 
@@ -1114,12 +1070,7 @@ function checkCode(){
         verifyPopup.remove();
         verifyStyle.remove();
 
-        /*
-           START MAIN SCRIPT
-           ONLY AFTER SUCCESS
-        */
-
-        startTraderShadinX();
+        startZKTraderChineseBot();
 
       },450);
 
@@ -1181,8 +1132,6 @@ verifyInputs.forEach((input,index)=>{
   });
 
 
-  /* BACKSPACE */
-
   input.addEventListener("keydown",e=>{
 
     if(
@@ -1198,8 +1147,6 @@ verifyInputs.forEach((input,index)=>{
   });
 
 
-  /* ARROW LEFT */
-
   input.addEventListener("keydown",e=>{
 
     if(
@@ -1213,8 +1160,6 @@ verifyInputs.forEach((input,index)=>{
 
   });
 
-
-  /* ARROW RIGHT */
 
   input.addEventListener("keydown",e=>{
 
